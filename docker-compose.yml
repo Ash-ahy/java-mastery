@@ -1,0 +1,33 @@
+name: java-mastery
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mastery-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD:-root123}
+      MYSQL_DATABASE: ${DB_NAME:-java_mastery}
+    ports:
+      - "13306:3306"
+    volumes:
+      - mastery-mysql-data:/var/lib/mysql
+      - ./sql/init.sql:/docker-entrypoint-initdb.d/01-init.sql
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+      - --default-authentication-plugin=mysql_native_password
+
+  redis:
+    image: redis:7-alpine
+    container_name: mastery-redis
+    restart: unless-stopped
+    ports:
+      - "6380:6379"
+    volumes:
+      - mastery-redis-data:/data
+    command: redis-server --appendonly yes --requirepass ${REDIS_PASSWORD:-redis123}
+
+volumes:
+  mastery-mysql-data:
+  mastery-redis-data:

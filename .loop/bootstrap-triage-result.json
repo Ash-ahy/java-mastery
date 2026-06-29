@@ -1,0 +1,48 @@
+{
+  "run_type": "triage",
+  "repo": "java-mastery",
+  "summary": "Bootstrap triage completed. No external events are connected yet, so the loop remains in report-only warm-up mode.",
+  "pause_recommended": false,
+  "new_items": [
+    {
+      "dedupe_key": "bootstrap:git-not-initialized",
+      "source": "manual_bootstrap",
+      "source_ref": "bootstrap",
+      "title": "Initialize Git repository before enabling branch/PR automation",
+      "body": "Local workspace is not a Git repository. Branch, worktree, and PR automation must remain disabled until Git init and remote setup are complete.",
+      "priority": 2,
+      "risk_level": "medium",
+      "recommended_action": "waiting_human",
+      "triage_reason": "Git-dependent automation is blocked by current local workspace state.",
+      "payload": {
+        "category": "bootstrap",
+        "requires_human": true
+      }
+    },
+    {
+      "dedupe_key": "bootstrap:connect-external-signals",
+      "source": "manual_bootstrap",
+      "source_ref": "bootstrap",
+      "title": "Connect GitHub/webhook/cron signals to start real triage ingestion",
+      "body": "No incoming events exist yet. The loop needs GitHub webhooks and/or scheduled signal ingestion before it can triage repository health automatically.",
+      "priority": 3,
+      "risk_level": "low",
+      "recommended_action": "report",
+      "triage_reason": "Loop can run technically, but has no external signals to process yet.",
+      "payload": {
+        "category": "bootstrap",
+        "next_step": "connect_webhooks_or_cron"
+      }
+    }
+  ],
+  "updates": [],
+  "selected_next_item_dedupe_key": "bootstrap:connect-external-signals",
+  "watch_list": [
+    "PostgreSQL loop state is online on localhost:15432.",
+    "Python runtime can already talk to the database through psycopg2.",
+    "Hermes cron jobs and GitHub webhooks are not configured yet."
+  ],
+  "noise": [
+    "Initial triage was generated from bootstrap context only; no live GitHub or CI events yet."
+  ]
+}

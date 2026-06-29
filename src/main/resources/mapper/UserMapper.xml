@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mastery.mapper.UserMapper">
+
+    <!-- 分页条件查询 -->
+    <select id="selectPage" resultType="com.mastery.entity.User">
+        SELECT * FROM sys_user
+        <where>
+            deleted = 0
+            <if test="query.keyword != null and query.keyword != ''">
+                AND (username LIKE CONCAT('%', #{query.keyword}, '%')
+                     OR phone LIKE CONCAT('%', #{query.keyword}, '%')
+                     OR email LIKE CONCAT('%', #{query.keyword}, '%'))
+            </if>
+            <if test="query.status != null">
+                AND status = #{query.status}
+            </if>
+            <if test="query.gender != null">
+                AND gender = #{query.gender}
+            </if>
+        </where>
+        ORDER BY create_time DESC
+    </select>
+
+</mapper>

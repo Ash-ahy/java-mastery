@@ -1,0 +1,38 @@
+# Build outputs
+/target/
+*.class
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Java crash logs
+hs_err_pid*
+replay_pid*
+
+# Local databases
+*.mv.db
+*.trace.db
+*.h2.db
+*.sqlite
+*.sqlite3
+*.db
+
+# Logs
+*.log
+logs/
+
+# IDE files
+.idea/
+.vscode/
+*.iml
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Loop local state
+.loop/.env.local
+.loop/runtime/*
+!.loop/runtime/.gitignore
+!.loop/runtime/*-job-prompt.md
