@@ -11,7 +11,7 @@ Current mode:
 - Executor: sequential
 - Auto PR: disabled
 - Auto merge: disabled
-- Git integration: enabled locally (git initialized, no remote configured)
+- Git integration: enabled (git initialized, remote configured)
 
 ## High Priority
 - No active high-priority work items.
@@ -20,9 +20,7 @@ Current mode:
 - None.
 
 ## Waiting Human
-- Work item: 554ad4a3-75fc-44ba-b8c0-c5e1604d5915
-  Title: Configure Git remote before enabling GitHub/PR automation
-  Why escalated: Remote-dependent automation is still blocked because no git remote is configured.
+- None.
 
 ## Watch List
 - No additional watch items.
@@ -32,7 +30,7 @@ Current mode:
 
 ## Budget Snapshot
 - tokens today: 0 / 500000
-- action runs today: 1 / 5
+- action runs today: 0 / 5
 - auto PRs today: 0 / 2
 - consecutive failed runs: tracked via run_log query / maintenance loop
 

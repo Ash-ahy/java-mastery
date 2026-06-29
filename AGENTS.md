@@ -18,7 +18,8 @@ Non-goals:
 
 Current repository note:
 - This project now has a local Git repository initialized in the workspace.
-- No Git remote is configured yet, so branch, worktree, PR, and merge automation stay disabled until a remote is connected.
+- A GitHub remote is now connected at `origin -> git@github.com:Ash-ahy/java-mastery.git`.
+- PR and merge automation remain policy-disabled by default in L1 until explicitly enabled for this repo.
 
 Low-risk changes allowed:
 - formatting
@@ -51,7 +52,7 @@ Required commands:
 - lint: not configured; use mvn -q -DskipTests compile as structural sanity check
 
 Pull request policy:
-- PR automation remains disabled until Git is configured
+- PR automation remains disabled by default in L1; enabling it requires an explicit repo policy change
 - Once enabled, open PR only for low-risk approved changes
 - PR title format: [loop] <short summary>
 - PR body must include:
@@ -66,4 +67,4 @@ Escalate immediately if:
 - tests fail outside target scope
 - requirement ambiguity exists
 - forbidden path would be modified
-- Git/remote operations are required but unavailable
+- GitHub authentication or remote operations are required but unavailable

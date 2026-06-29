@@ -9,7 +9,9 @@ What is already implemented:
 - Python runtime skeletons for state hydration, triage application, action/verify application, summary application, reconciliation, and stale lock cleanup
 
 Current limitation:
-- The local workspace now has a Git repository, but no remote is configured yet, so branch/worktree/PR automation remains intentionally disabled.
+- The local workspace now has Git initialized and a GitHub remote connected.
+- Remote `master` contains the current bootstrap baseline.
+- Branch/worktree/PR automation can be enabled later, but remains intentionally off by default at L1.
 
 Environment variables:
 - `LOOP_DATABASE_URL`: PostgreSQL connection string

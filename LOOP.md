@@ -8,13 +8,13 @@ Operate this repository as a safe, persistent, auditable agent loop.
 Prefer visibility first, then low-risk action, then guarded automation.
 
 Current local reality:
-- The local workspace now has Git initialized.
-- No Git remote is configured yet, so GitHub/PR automation remains disabled.
+- The local workspace now has Git initialized and a GitHub remote connected.
+- Remote `master` now contains the current local bootstrap baseline commit.
 - PostgreSQL is the source of truth for loop state.
 - STATE.md is the human dashboard.
 - One active work item at a time.
 - Maker/checker separation is mandatory.
-- Remote-dependent actions stay disabled until a remote is configured.
+- Remote Git operations are now available, but PR/merge automation remains off by default in L1.
 
 Operating model:
 - fresh-run sessions, never immortal chats
@@ -37,7 +37,7 @@ Active loops:
 - goal: execute the smallest safe action
 - output: patch/comment/notes
 - phase: enabled only after L1 proves stable
-- current local restriction: Git/PR actions disabled
+- current local restriction: PR/merge automation remains policy-disabled by default
 
 3. Verifier Loop
 - trigger: after every action attempt
@@ -55,7 +55,7 @@ Active loops:
 - goal: clear stale locks, move exhausted items to dead_letter, reconcile external state
 
 Priority rules:
-- P0: main branch CI failure
+- P0: default branch CI failure
 - P1: PR blockers
 - P2: high-priority issues
 - P3: dependency/doc/cleanup
@@ -73,7 +73,7 @@ Human gates:
 - more than 5 files changed
 - unclear root cause
 - test failures outside target scope
-- any action that needs Git branching, worktrees, PRs, or remote access before Git is configured
+- any action that needs GitHub auth, branching/worktrees, or PR automation beyond current repo policy
 
 Denylist:
 - auth

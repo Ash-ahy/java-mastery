@@ -355,7 +355,7 @@ def write_state_md(extra: dict[str, Any] | None = None) -> None:
     git_line = (
         "- Git integration: enabled locally (git initialized, no remote configured)"
         if mode.get("git_initialized") and not mode.get("git_remote_configured")
-        else "- Git integration: enabled"
+        else "- Git integration: enabled (git initialized, remote configured)"
         if mode.get("git_initialized") and mode.get("git_remote_configured")
         else "- Git integration: disabled (local workspace not initialized as git repo)"
     )

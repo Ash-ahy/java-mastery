@@ -26,4 +26,4 @@ Recommended jobs:
 Current limitation:
 - Full autonomous cron execution still needs a self-contained Hermes prompt that reads these JSON files and writes back result JSON before apply_* scripts run.
 - GitHub webhook ingestion is not connected yet.
-- Git is initialized locally, but remote-dependent GitHub/PR automation still stays disabled until a remote is connected.
+- GitHub remote is connected (`origin`), so remote-aware automation is now possible, but PR/merge automation remains policy-disabled until explicitly enabled.
